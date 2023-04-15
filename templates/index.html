@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../static/speech.css" />
+  <title>Speech to Text</title>
+</head>
+
+<body>
+  <div class="left-block"><span id="contributor">By Swara Sawant</span>
+    <br> <span id="guider">Guided by Prof Sridhar VG</span>
+  </div>
+  <div class="main-block">
+    <p class="heading"><a>Speech to Text Summarisation</a></p>
+    <div class="options">
+      <p>Language</p>
+      <div class="language">
+        <select name="input-language" id="language" disabled></select>
+        <img src="../static/moon.png" id="dark-mode">
+      </div>
+    </div>
+    <div class="line"></div>
+    <div class="buttonstyle">
+      <button class="btn record">
+        <div class="icon">
+          <ion-icon name="mic-outline"></ion-icon>
+        </div>
+        <p>Start Listening</p>
+      </button>
+    </div>
+    <p class="heading-result">Result :</p>
+    <div class="withButton">
+      <form action="{{url_for('Summarize')}}" method="post">
+        <div class="text-display">
+          <div class="td1">
+            <textarea class="result" spellcheck="false" id="result1" name="result1"
+              placeholder="Text will be shown here">{{result1}}</textarea>
+          </div>
+          <div class="td2">
+            <textarea class="result" spellcheck="false" id="result2" name="result2"
+              placeholder="Summary will be shown here">{{result2}}</textarea>
+          </div>
+        </div>
+        <div class="sumStyle">
+          <button class="btn summ" type="submit">
+            <p>Summarise</p>
+          </button>
+          20<input type="range" min="20" max="1000" name="maxL" value="100">1000
+      </form>
+    </div>
+    <div class="buttons">
+      <button class="btn copy">
+        <ion-icon name="copy"></ion-icon>
+        <p>Copy Text</p>
+      </button>
+      <button class="btn clear">
+        <ion-icon name="trash-outline"></ion-icon>
+        <p>Clear</p>
+      </button>
+      <button class="btn copySum">
+        <ion-icon name="copy"></ion-icon>
+        <p>Copy Summary</p>
+      </button>
+      <button class="btn download">
+        <ion-icon name="cloud-download-outline"></ion-icon>
+        <p>Download</p>
+      </button>
+    </div>
+  </div>
+
+
+  <!-- IONICONS -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- LANGUAGES -->
+  <script src="../static/language.js"></script>
+
+  <!-- SCRIPT -->
+  <script src="../static/speech.js"></script>
+
+</body>
+
+</html>
